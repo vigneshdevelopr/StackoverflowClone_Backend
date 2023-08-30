@@ -6,7 +6,6 @@ const answerSchema = new Schema(
   {
     content: {
       type: String,
-      required: true,
     },
     date: {
       type: Date,
