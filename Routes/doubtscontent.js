@@ -60,7 +60,6 @@ router.post("/answers/:questionId", async (req, res) => {
       const answer = await new Answer({
         content,
         date,
-        user: req.user._id,
         question: questionId,
       }).save();
   
