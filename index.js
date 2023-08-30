@@ -16,7 +16,7 @@ app.use(express.json());
 app.use(cors());
 app.use("/user", signupRouter);
 app.use("/user", loginRouter);
-app.use("/",isSignedIn, doubtscontent);
+app.use("/", doubtscontent);
 createConnection();
 app.listen(PORT, () => {
   console.log(`listening on port ${PORT}`);
