@@ -7,10 +7,9 @@ import { loginRouter } from "./Routes/login.js";
 import { signupRouter } from "./Routes/signup.js";
 import { doubtscontent } from "./Routes/doubtscontent.js";
 import { isSignedIn } from "./Auth/auth.js";
-import cron from 'node-cron'
 const app = express();
 
-const PORT = process.env.port;
+const PORT = process.env.PORT || 3002;
 
 app.use(express.json());
 app.use(cors());
@@ -22,9 +21,7 @@ app.get('/',(req,res)=>{
 app.use("/",isSignedIn, doubtscontent);
 createConnection();
 
-cron.schedule('* * * * *', () => {
-  console.log('running a task every minute');
-});
+
 //================================================================
 
 app.get("/home", (req, res) => {
@@ -32,6 +29,6 @@ app.get("/home", (req, res) => {
 });
 
 
-app.listen(PORT, () => {
+app.listen(PORT,'0.0.0.0', () => {
   console.log(`listening on port ${PORT}`);
 });
